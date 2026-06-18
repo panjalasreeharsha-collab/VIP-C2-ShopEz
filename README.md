@@ -75,33 +75,6 @@ cd ../frontend
 npm install
 ```
 
-## 🔐 Environment Variables
-
-Create a `.env` file inside the `backend/` folder and add the following values:
-
-```env
-PORT=5001
-NODE_ENV=development
-MONGO_URI=mongodb://127.0.0.1:27017/shopez
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRE=7d
-CLIENT_URL=http://localhost:5173
-
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-
-SMTP_HOST=your_smtp_host
-SMTP_PORT=587
-SMTP_USER=your_smtp_user
-SMTP_PASS=your_smtp_password
-SMTP_SECURE=false
-EMAIL_FROM=ShopEZ <no-reply@shopez.local>
-
-GOOGLE_CLIENT_ID=your_google_client_id
-QR_UPI_ID=your_upi_id
-QR_MERCHANT_NAME=ShopEZ E-Commerce
-```
 
 ## ▶️ How to Run Frontend
 
