@@ -1,0 +1,13 @@
+import express from 'express';
+import { register, verifyOtp, login, googleAuth, forgotPassword, resetPassword, getMe } from '../controllers/authController.js';
+import { protect } from '../middlewares/auth.js';
+import { authLimiter } from '../middlewares/rateLimiter.js';
+const router = express.Router();
+router.post('/register', authLimiter, register);
+router.post('/verify-otp', verifyOtp);
+router.post('/login', authLimiter, login);
+router.post('/google', googleAuth);
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password', resetPassword);
+router.get('/me', protect, getMe);
+export default router;

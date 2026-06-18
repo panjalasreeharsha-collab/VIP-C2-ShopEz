@@ -1,0 +1,10 @@
+import express from 'express';
+import { getCategories, getProducts, getProductById, addReview, getSearchSuggestions } from '../controllers/productController.js';
+import { protect } from '../middlewares/auth.js';
+const router = express.Router();
+router.get('/categories', getCategories);
+router.get('/', getProducts);
+router.get('/suggestions', getSearchSuggestions);
+router.get('/:id', getProductById);
+router.post('/:id/reviews', protect, addReview);
+export default router;

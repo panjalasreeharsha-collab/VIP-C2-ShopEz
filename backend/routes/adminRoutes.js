@@ -1,0 +1,12 @@
+import express from 'express';
+import { getUsers, getSellers, verifySeller, createCoupon, getSystemAnalytics } from '../controllers/adminController.js';
+import { protect, authorize } from '../middlewares/auth.js';
+const router = express.Router();
+router.use(protect);
+router.use(authorize('admin'));
+router.get('/users', getUsers);
+router.get('/sellers', getSellers);
+router.put('/seller/:id/verify', verifySeller);
+router.post('/coupon', createCoupon);
+router.get('/analytics', getSystemAnalytics);
+export default router;

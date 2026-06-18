@@ -1,0 +1,10 @@
+import express from 'express';
+import { registerSeller, sellerCreateProduct, getSellerAnalytics } from '../controllers/sellerController.js';
+import { protect, sellerProtect } from '../middlewares/auth.js';
+import upload from '../middlewares/upload.js';
+const router = express.Router();
+router.use(protect);
+router.post('/register', registerSeller);
+router.post('/product', sellerProtect, upload.array('images', 5), sellerCreateProduct);
+router.get('/analytics', sellerProtect, getSellerAnalytics);
+export default router;

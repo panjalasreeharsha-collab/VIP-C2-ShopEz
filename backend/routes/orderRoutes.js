@@ -1,0 +1,11 @@
+import express from 'express';
+import { createOrder, getOrderById, generateQrPayment, confirmQrPayment, getMyOrders } from '../controllers/orderController.js';
+import { protect } from '../middlewares/auth.js';
+const router = express.Router();
+router.use(protect);
+router.post('/', createOrder);
+router.get('/myorders', getMyOrders);
+router.get('/:id', getOrderById);
+router.post('/qr-pay', generateQrPayment);
+router.post('/qr-confirm', confirmQrPayment);
+export default router;
